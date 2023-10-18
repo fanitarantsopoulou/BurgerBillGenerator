@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BurgerBillGenerator {
 
     public static void main(String[] args) {
+        //All prices are counted in euros €.
         Scanner in = new Scanner(System.in);
         System.out.println("Would you like a simple burger for 4€? (yes/no)");
         String answer = in.next();

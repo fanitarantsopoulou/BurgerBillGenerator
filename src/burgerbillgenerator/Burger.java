@@ -1,6 +1,6 @@
 package burgerbillgenerator;
 public class Burger {
-    
+    //Declaration of variables
     private double price;
     private final double extraBaconPrice=0.40;
     private final double extraCheesePrice=0.20;
@@ -15,12 +15,15 @@ public class Burger {
     private boolean isExtraCheeseAdded=false;
     private boolean isExtraPicklesAdded=false;
     private boolean isDeliveryChosen=false;
+    
     //Constructor
     public Burger(Boolean beef){
         this.beef=beef;
             this.price=4.00; //The price is counted in euros.
         ingredientsBurgerPrice=this.price;
     }
+    
+    //Methods
     public void getBurgerPrice(){
         
    

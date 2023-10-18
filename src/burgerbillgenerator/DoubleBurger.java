@@ -1,7 +1,7 @@
 package burgerbillgenerator;
 
 public class DoubleBurger extends Burger {
-    
+    //Declaration of variables
     private final double doubleBurgerBaconPrice = 0.40;
     private final double doubleBurgerCheesePrice = 0.20;
     private final double doubleBurgerPicklesPrice = 0.30;
@@ -14,7 +14,8 @@ public class DoubleBurger extends Burger {
     private boolean isExtraCheeseAddedD = false;
     private boolean isExtraPicklesAddedD = false;
     private boolean isDeliveryChosenD = false;
-
+    
+    //Constructor
     public DoubleBurger(Boolean beef) {
         super(beef);
         addExtraBacon();
@@ -23,7 +24,7 @@ public class DoubleBurger extends Burger {
             this.doubleBurgerPrice=6.00;
             ingredientsDoubleBurger=this.doubleBurgerPrice;
     }
-
+    //Methods
     public  double getDoubleBurgerPrice() {
         return doubleBurgerPrice;
     }
