@@ -1,28 +1,27 @@
 package burgerbillgenerator;
 
 public class DoubleBurger extends Burger {
+    
+    private final double doubleBurgerBaconPrice = 0.40;
+    private final double doubleBurgerCheesePrice = 0.20;
+    private final double doubleBurgerPicklesPrice = 0.30;
+    private final double doubleBurgerDeliveryPrice=0.50;
+    
     private double ingredientsDoubleBurger;
-    private static double doubleBurgerBaconPrice = 0.40;
-    private static final double doubleBurgerCheesePrice = 0.20;
-    private static final double doubleBurgerPicklesPrice = 0.30;
-    private static final double doubleBurgerTakeAwayPrice=0.50;
     private double doubleBurgerPrice = 6.00;
+    
     private boolean isExtraBaconAddedD = false;
     private boolean isExtraCheeseAddedD = false;
     private boolean isExtraPicklesAddedD = false;
-    private boolean isTakeAwayChosenD = false;
+    private boolean isDeliveryChosenD = false;
 
     public DoubleBurger(Boolean beef) {
         super(beef);
         addExtraBacon();
         addExtraCheese();
         addExtraPickles();
-        if (this.beef){
             this.doubleBurgerPrice=6.00;
-        }else{
-            this.doubleBurgerPrice=5.00; //The price is counted in euros.
-        }
-        ingredientsDoubleBurger=this.doubleBurgerPrice;
+            ingredientsDoubleBurger=this.doubleBurgerPrice;
     }
 
     public  double getDoubleBurgerPrice() {
@@ -30,36 +29,41 @@ public class DoubleBurger extends Burger {
     }
 
     @Override
-    public void addExtraBacon() {
+    public final void addExtraBacon() {
         isExtraBaconAddedD = true;
-        doubleBurgerPrice = doubleBurgerPrice + doubleBurgerBaconPrice;
+        doubleBurgerPrice += doubleBurgerBaconPrice;
     }
 
     @Override
-    public void addExtraCheese() {
+    public final void addExtraCheese() {
         isExtraCheeseAddedD = true;
-        doubleBurgerPrice = doubleBurgerPrice + doubleBurgerCheesePrice;
+        doubleBurgerPrice+=doubleBurgerCheesePrice;
     }
 
     @Override
-    public void addExtraPickles() {
+    public final void addExtraPickles() {
         isExtraPicklesAddedD = true;
-        doubleBurgerPrice = doubleBurgerPrice + doubleBurgerPicklesPrice;
+        doubleBurgerPrice += doubleBurgerPicklesPrice;
+    }
+    
+    @Override
+    public final void addDeliveryPrice(){
+        isDeliveryChosenD=true;
+        doubleBurgerPrice+=doubleBurgerDeliveryPrice;
     }
     public void getDoubleBurgerBill(){
         String doubleBurgerBill="";
-        System.out.println("Burger:"+ingredientsDoubleBurger);
         if(isExtraBaconAddedD){
-            doubleBurgerBill+="Extra bacon added:"+doubleBurgerBaconPrice+"\n";
+            doubleBurgerBill+=doubleBurgerBaconPrice;
         }
         if(isExtraCheeseAddedD){
-            doubleBurgerBill+="Extra cheese added:"+doubleBurgerCheesePrice+"\n";
+            doubleBurgerBill+=doubleBurgerCheesePrice;
         }
         if(isExtraPicklesAddedD){
-            doubleBurgerBill+="Extra pickles added:"+doubleBurgerPicklesPrice+"\n";
+            doubleBurgerBill+=doubleBurgerPicklesPrice;
         }
-        if(isTakeAwayChosenD){
-            doubleBurgerBill+="Delivery price is:"+doubleBurgerTakeAwayPrice+"\n";
+        if(isDeliveryChosenD){
+            doubleBurgerBill+=doubleBurgerDeliveryPrice;
         }
         doubleBurgerBill="Total bill:"+this.doubleBurgerPrice+"\n";
         System.out.println(doubleBurgerBill);
