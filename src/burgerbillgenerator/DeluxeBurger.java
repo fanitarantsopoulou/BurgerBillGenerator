@@ -50,7 +50,7 @@ public class DeluxeBurger extends Burger {
         isExtraPicklesAddedDe = true;
         doubleBurgerPrice += deluxeBurgerPicklesPrice;
     }
-    @Override
+    
     public final void addExtraFries(){
         isExtraFriesAddedDe=true;
         doubleBurgerPrice+=deluxeBurgerFriesPrice;

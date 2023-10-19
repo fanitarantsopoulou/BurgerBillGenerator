@@ -5,6 +5,7 @@ public class Burger {
     private final double extraBaconPrice=0.40;
     private final double extraCheesePrice=0.20;
     private final double extraPicklesPrice=0.30;
+    private final double extraFriesPrice=1.50;
     private final double deliveryPrice=0.50;
     private final double ingredientsBurgerPrice;
     
@@ -14,6 +15,7 @@ public class Burger {
     private boolean isExtraBaconAdded=false;
     private boolean isExtraCheeseAdded=false;
     private boolean isExtraPicklesAdded=false;
+    private boolean isExtraFriesAdded=false;
     private boolean isDeliveryChosen=false;
     
     //Constructor
@@ -42,6 +44,10 @@ public class Burger {
         isExtraPicklesAdded=true;
         this.price=this.price+extraPicklesPrice;
     }
+    public void addExtraFries(){
+        isExtraFriesAdded=true;
+        this.price+=+extraFriesPrice;
+    }
     public void addDeliveryPrice(){
         isDeliveryChosen=true; 
         this.price=this.price+deliveryPrice;
@@ -56,6 +62,9 @@ public class Burger {
         }
         if(isExtraPicklesAdded){
             bill+=extraPicklesPrice;
+        }
+        if(isExtraFriesAdded){
+            bill+=extraFriesPrice;
         }
         if(isDeliveryChosen){
             bill+=deliveryPrice;
