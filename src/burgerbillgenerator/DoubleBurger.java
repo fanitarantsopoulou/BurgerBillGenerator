@@ -5,6 +5,7 @@ public class DoubleBurger extends Burger {
     private final double doubleBurgerBaconPrice = 0.40;
     private final double doubleBurgerCheesePrice = 0.20;
     private final double doubleBurgerPicklesPrice = 0.30;
+    private final double doubleBurgerFriesPrice=1.50;
     private final double doubleBurgerDeliveryPrice=0.50;
     
     private double ingredientsDoubleBurger;
@@ -13,6 +14,7 @@ public class DoubleBurger extends Burger {
     private boolean isExtraBaconAddedD = false;
     private boolean isExtraCheeseAddedD = false;
     private boolean isExtraPicklesAddedD = false;
+    private boolean isExtraFriesAddedD=false;
     private boolean isDeliveryChosenD = false;
     
     //Constructor
@@ -21,6 +23,7 @@ public class DoubleBurger extends Burger {
         addExtraBacon();
         addExtraCheese();
         addExtraPickles();
+        addExtraFries();
             this.doubleBurgerPrice=6.00;
             ingredientsDoubleBurger=this.doubleBurgerPrice;
     }
@@ -46,7 +49,10 @@ public class DoubleBurger extends Burger {
         isExtraPicklesAddedD = true;
         doubleBurgerPrice += doubleBurgerPicklesPrice;
     }
-    
+    public final void addExtraFries(){
+        isExtraFriesAddedD=true;
+        doubleBurgerPrice+=doubleBurgerFriesPrice;
+    }
     @Override
     public final void addDeliveryPrice(){
         isDeliveryChosenD=true;
@@ -62,6 +68,9 @@ public class DoubleBurger extends Burger {
         }
         if(isExtraPicklesAddedD){
             doubleBurgerBill+=doubleBurgerPicklesPrice;
+        }
+        if(isExtraFriesAddedD){
+            doubleBurgerBill+=doubleBurgerFriesPrice;
         }
         if(isDeliveryChosenD){
             doubleBurgerBill+=doubleBurgerDeliveryPrice;
