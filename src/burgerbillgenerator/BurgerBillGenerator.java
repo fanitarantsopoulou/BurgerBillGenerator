@@ -7,13 +7,12 @@ public class BurgerBillGenerator {
     public static void main(String[] args) {
         //All prices are counted in euros €.
         Scanner in = new Scanner(System.in);
-        System.out.println("Welcome to Burgeria!");
-        System.out.println("Your option is: 1. Simple Burger 4€ (beef patty, cheese, ketchup, pickles)");
-        System.out.println("Your other option is: 2. Double Burger 6€ (double beef patty, cheese, ketchup, pickles)");
-        System.out.println("Your other option is: 3. Deluxe Burger 7€ (double beef patty, cheese, ketchup, bacon, egg, iceberg");
-        System.out.println("Would you like a simple burger for 4€? (yes/no)");
+        System.out.println("Welcome to Burgeria! Please enter your order.\n");
+        System.out.println("Your option is: 1. Simple Burger 4€ (beef patty, cheese, ketchup, pickles)\n");
+        System.out.println("Your other option is: 2. Double Burger 6€ (double beef patty, cheese, ketchup, pickles)\n");
+        System.out.println("Your other option is: 3. Deluxe Burger 7€ (double beef patty, cheese, ketchup, bacon, egg, iceberg)\n");
+        System.out.println("Would you like a simple burger for 4€? (yes/no)\n");
         String answer = in.next();
-        Burger ingredientsBurger = null;
         DoubleBurger ingredientsDoubleBurger = null;
         DeluxeBurger ingredientsDeluxeBurger=null;
         if (answer.equals("no") || answer.equals("No") || answer.equals("NO")) {
@@ -81,6 +80,8 @@ public class BurgerBillGenerator {
             ingredientsDoubleBurger.getDoubleBurgerBill();
             }
         }
+        
+        Burger ingredientsBurger = null;
 
         if (answer.equals("yes") || answer.equals("Yes") || answer.equals("YES")) {
             System.out.println("You chose a simple burger. Please select yout preffered ingredients.");
@@ -139,11 +140,14 @@ public class BurgerBillGenerator {
                         System.out.println("Pickles removed.");
                     }
                 }
+                if (ingredientsBurger!=null){
             ingredientsBurger.getBill();
+            }
+           
        
         }
-        if (answer.equals("no") || answer.equals("No") || answer.equals("NO")){
-            System.out.println("Would you like a deluxe Burger?");
+        else {
+            System.out.println("Would you like a deluxe burger for 7.50 € (yes/no)?");
             String answerdeluxe=in.next();
             if (answerdeluxe.equals("yes") || answer.equals("Yes") || answer.equals("YES")){
                 System.out.println("You chose a deluxe burger.");
@@ -188,8 +192,37 @@ public class BurgerBillGenerator {
                 System.out.println("Delivery price is +0.50€.");
                 ingredientsDeluxeBurger.addDeliveryPrice();
             }
-                
+            if(ingredientsDeluxeBurger!=null){
+                ingredientsDeluxeBurger.getDeluxeBurgerBill();
+            }    
             }
+            System.out.println("Would you like to remove one of the preselected ingredients? (cheese, ketchup, bacon, egg, iceberg)");
+                String choicedeluxe=in.next();
+                if (choicedeluxe.equals("yes")|| choicedeluxe.equals("Yes")|| choicedeluxe.equals("YES")){
+                    System.out.println("What ingredient would you like to remove? (1,2,3)");
+                    System.out.println("1. Ketcup.");
+                    System.out.println("2. Cheese.");
+                    System.out.println("3. Iceberg.");
+                    System.out.println("4. Bacon");
+                    System.out.println("5. Egg");
+                    String removechoicede=in.next();
+                    if (removechoicede.equals("1")){
+                        System.out.println("Ketchup removed.");
+                    }
+                    else if(removechoicede.equals("2")){
+                        System.out.println("Cheese removed.");
+                    }
+              else if(removechoicede.equals("3")){
+                        System.out.println("Iceberg removed.");
+                    }
+               else if(removechoicede.equals("4")){
+                        System.out.println("Bacon removed.");
+                    }
+                else{
+                        System.out.println("Egg removed.");
+                    }
+
+                }
             else{
                 System.out.println("You need to choose one of the burger options.");
             }

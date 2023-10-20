@@ -76,7 +76,7 @@ public class DeluxeBurger extends Burger {
         isDeliveryChosenDe=true;
         deluxeBurgerPrice+=deluxeBurgerDeliveryPrice;
     }
-    public void getDoubleBurgerBill(){
+    public void getDeluxeBurgerBill(){
         String deluxeBurgerBill="";
         if(isExtraBaconAddedDe){
             deluxeBurgerBill+=deluxeBurgerBaconPrice;
