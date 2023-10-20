@@ -15,6 +15,7 @@ public class BurgerBillGenerator {
         String answer = in.next();
         Burger ingredientsBurger = null;
         DoubleBurger ingredientsDoubleBurger = null;
+        DeluxeBurger ingredientsDeluxeBurger=null;
         if (answer.equals("no") || answer.equals("No") || answer.equals("NO")) {
             System.out.println("Would you like a double burger for 6€ (yes/no)");
             String answer2 = in.next();
@@ -146,6 +147,51 @@ public class BurgerBillGenerator {
             String answerdeluxe=in.next();
             if (answerdeluxe.equals("yes") || answer.equals("Yes") || answer.equals("YES")){
                 System.out.println("You chose a deluxe burger.");
+                ingredientsDeluxeBurger = new DeluxeBurger(true);
+
+            System.out.println("Would you like extra bacon? (yes/no) ");
+            String extraBacon = in.next();
+            if (extraBacon.equals("yes") || extraBacon.equals("Yes") || extraBacon.equals("YES")) {
+                System.out.println("Extra bacon added +0.40€");
+                ingredientsDeluxeBurger.addExtraBacon();
+            }
+
+            System.out.println("Would you like extra cheese? (yes/no) ");
+            String extraCheese = in.next();
+            if (extraCheese.equals("yes") || extraCheese.equals("Yes") || extraCheese.equals("YES")) {
+                System.out.println("Extra cheese added +0.20€");
+                ingredientsDeluxeBurger.addExtraCheese();
+            }
+
+            System.out.println("Would you like extra egg? (yes/no) ");
+            String extraEgg = in.next();
+            if (extraEgg.equals("yes") || extraEgg.equals("Yes") || extraEgg.equals("YES")) {
+                System.out.println("Extra egg added +0.50€");
+                ingredientsDeluxeBurger.addExtraEgg();
+            }
+            System.out.println("Would you like extra iceberg? (yes/no) ");
+            String extraIceberg = in.next();
+            if (extraIceberg.equals("yes") || extraIceberg.equals("Yes") || extraIceberg.equals("YES")) {
+                System.out.println("Extra iceberg added +0.20€");
+                ingredientsDeluxeBurger.addExtraIceberg();
+            }
+             System.out.println("Would you like extra fries?( yes/no) ");
+                String extraFries=in.next();
+                if (extraFries.equals("yes") || extraFries.equals("Yes") || extraFries.equals("YES")) {
+                    System.out.println("Extra fries added +1.50€");
+                    ingredientsDeluxeBurger.addExtraFries();
+                }
+                
+            System.out.println("Would you prefer your order to be delivered? (yes/no) ");
+            String delivery = in.next();
+            if (delivery.equals("yes") || delivery.equals("Yes") || delivery.equals("YES")) {
+                System.out.println("Delivery price is +0.50€.");
+                ingredientsDeluxeBurger.addDeliveryPrice();
+            }
+                
+            }
+            else{
+                System.out.println("You need to choose one of the burger options.");
             }
             
         }

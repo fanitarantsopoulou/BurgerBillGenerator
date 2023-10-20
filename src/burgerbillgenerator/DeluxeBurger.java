@@ -6,17 +6,21 @@ public class DeluxeBurger extends Burger {
     private final double deluxeBurgerCheesePrice = 0.20;
     private final double deluxeBurgerPicklesPrice = 0.30;
     private final double deluxeBurgerFriesPrice=1.50;
+    private final double deluxeBurgerEggPrice=0.50;
+    private final double deluxeBurgerIcebergPrice=0.20;
     private final double deluxeBurgerDeliveryPrice=0.50;
    
     
     private double ingredientsDeluxeBurger;
-    private double doubleBurgerPrice = 7.50;
+    private double deluxeBurgerPrice = 7.50;
     
     private boolean isExtraBaconAddedDe = false;
     private boolean isExtraCheeseAddedDe= false;
     private boolean isExtraPicklesAddedDe = false;
     private boolean isExtraFriesAddedDe=false;
-    private boolean isDeliveryChosenD = false;
+    private boolean isExtraEggAddedDe=false;
+    private boolean isExtraIcebergAddedDe=false;
+    private boolean isDeliveryChosenDe = false;
     
     //Constructor
     public DeluxeBurger(Boolean beef) {
@@ -25,40 +29,52 @@ public class DeluxeBurger extends Burger {
         addExtraCheese();
         addExtraPickles();
         addExtraFries();
-            this.doubleBurgerPrice=7.50;
-            ingredientsDeluxeBurger=this.doubleBurgerPrice;
+        addExtraEgg();
+        addExtraIceberg();
+            this.deluxeBurgerPrice=7.50;
+            ingredientsDeluxeBurger=this.deluxeBurgerPrice;
     }
     //Methods
     public  double getDoubleBurgerPrice() {
-        return doubleBurgerPrice;
+        return deluxeBurgerPrice;
     }
-
+    
+    public final void addExtraIceberg(){
+        isExtraIcebergAddedDe=true;
+        deluxeBurgerPrice+=deluxeBurgerIcebergPrice;
+    }
+    
+    public final void addExtraEgg(){
+        isExtraEggAddedDe=true;
+        deluxeBurgerPrice+=deluxeBurgerEggPrice;
+    }
     @Override
     public final void addExtraBacon() {
         isExtraBaconAddedDe = true;
-        doubleBurgerPrice += deluxeBurgerBaconPrice;
+        deluxeBurgerPrice += deluxeBurgerBaconPrice;
     }
 
     @Override
     public final void addExtraCheese() {
         isExtraCheeseAddedDe = true;
-        doubleBurgerPrice+=deluxeBurgerCheesePrice;
+        deluxeBurgerPrice+=deluxeBurgerCheesePrice;
     }
 
     @Override
     public final void addExtraPickles() {
         isExtraPicklesAddedDe = true;
-        doubleBurgerPrice += deluxeBurgerPicklesPrice;
+        deluxeBurgerPrice += deluxeBurgerPicklesPrice;
     }
     
+    @Override
     public final void addExtraFries(){
         isExtraFriesAddedDe=true;
-        doubleBurgerPrice+=deluxeBurgerFriesPrice;
+        deluxeBurgerPrice+=deluxeBurgerFriesPrice;
     }
     @Override
     public final void addDeliveryPrice(){
-        isDeliveryChosenD=true;
-        doubleBurgerPrice+=deluxeBurgerDeliveryPrice;
+        isDeliveryChosenDe=true;
+        deluxeBurgerPrice+=deluxeBurgerDeliveryPrice;
     }
     public void getDoubleBurgerBill(){
         String deluxeBurgerBill="";
@@ -74,10 +90,17 @@ public class DeluxeBurger extends Burger {
         if(isExtraFriesAddedDe){
             deluxeBurgerBill+=deluxeBurgerFriesPrice;
         }
-        if(isDeliveryChosenD){
-            deluxeBurgerBill+=deluxeBurgerDeliveryPrice;
+        if(isExtraEggAddedDe){
+            deluxeBurgerBill+=deluxeBurgerEggPrice;
         }
-        deluxeBurgerBill="Total bill:"+this.doubleBurgerPrice+"\n";
+          if(isExtraIcebergAddedDe){
+            deluxeBurgerBill+=deluxeBurgerIcebergPrice;
+        }
+        if(isDeliveryChosenDe){
+            deluxeBurgerBill+=deluxeBurgerDeliveryPrice;
+        } else {
+        }
+        deluxeBurgerBill="Total bill:"+this.deluxeBurgerPrice+"\n";
         System.out.println(deluxeBurgerBill);
     }
     
